@@ -1,0 +1,971 @@
+[
+  {
+    "question": "A farmer in Eldoret wants to run a single container quickly to test his app, no orchestration, pay only while it runs. LEAST admin effort?",
+    "options": [
+      "Azure Container Instances",
+      "Azure Kubernetes Service (AKS)",
+      "Virtual Machines",
+      "Azure App Service"
+    ],
+    "correct_answer": "A",
+    "explanation": "ACI = run 1 container fast, serverless. AKS = for 100s of containers with orchestration. Think boda (1 container) vs matatu SACCO fleet (AKS).",
+    "topic": "Compute",
+    "difficulty": "easy",
+    "id": "az900-001",
+    "signal": "Single container; quick test; no orchestration; minimal administration.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "ACI = run 1 container fast, serverless. AKS = for 100s of containers with orchestration. Think boda (1 container) vs matatu SACCO fleet (AKS).",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Container Instances"
+  },
+  {
+    "question": "You need to manage 100 containers with auto-scaling, self-healing, and rolling updates. Which service?",
+    "options": [
+      "Azure Container Instances",
+      "Azure Kubernetes Service",
+      "Azure Functions",
+      "Azure App Service"
+    ],
+    "correct_answer": "B",
+    "explanation": "AKS is orchestrator. ACI can't handle fleet management. AKS = manager for containers.",
+    "topic": "Compute",
+    "difficulty": "easy",
+    "id": "az900-002",
+    "signal": "Many containers; orchestration; autoscaling; self-healing; rolling updates.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "AKS is orchestrator. ACI can't handle fleet management. AKS = manager for containers.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Kubernetes Service"
+  },
+  {
+    "question": "You need to host a custom web API with autoscaling and built-in continuous deployment, without managing the operating system. Which service is the best fit?",
+    "options": [
+      "Virtual Machines",
+      "Azure App Service",
+      "Azure Container Instances",
+      "AKS"
+    ],
+    "correct_answer": "B",
+    "explanation": "Azure App Service is a managed platform for hosting web applications and APIs. Microsoft manages the underlying operating system, while you focus on your application. The best answer is based on the stated management needs, not a universal claim that it is always the cheapest option.",
+    "topic": "Compute",
+    "difficulty": "easy",
+    "id": "az900-003",
+    "signal": "Managed web API hosting; autoscaling; continuous deployment; no OS management.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure App Service is a managed platform for hosting web applications and APIs. Microsoft manages the underlying operating system, while you focus on your application. The best answer is based on the stated management needs, not a universal claim that it is always the cheapest option.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure App Service"
+  },
+  {
+    "question": "You need code that runs ONLY when a file is uploaded to Blob storage, no servers, pay per execution. Which?",
+    "options": [
+      "Azure Virtual Machines",
+      "Azure Functions",
+      "Azure App Service",
+      "AKS"
+    ],
+    "correct_answer": "B",
+    "explanation": "Functions = event-driven, serverless. Trigger = blob upload. Perfect for small tasks.",
+    "topic": "Compute",
+    "difficulty": "easy",
+    "id": "az900-004",
+    "signal": "Code starts when a blob is uploaded; event trigger; pay per execution.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Functions = event-driven, serverless. Trigger = blob upload. Perfect for small tasks.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Functions"
+  },
+  {
+    "question": "You need full control of OS, install custom software on Windows Server. Which service?",
+    "options": [
+      "Azure App Service",
+      "Azure Functions",
+      "Virtual Machines",
+      "Container Instances"
+    ],
+    "correct_answer": "C",
+    "explanation": "Need OS control = IaaS = VM. PaaS (App Service/Functions) hides OS.",
+    "topic": "Compute",
+    "difficulty": "easy",
+    "id": "az900-005",
+    "signal": "Full guest operating-system control and custom software installation.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Need OS control = IaaS = VM. PaaS (App Service/Functions) hides OS.",
+    "exam_alignment_note": "",
+    "correct_option": "Virtual Machines"
+  },
+  {
+    "question": "You need to block IP 197.248.0.0/24 from reaching a single subnet with least cost. What?",
+    "options": [
+      "Azure Firewall",
+      "Network Security Group (NSG)",
+      "DDoS Protection Standard",
+      "Azure Bastion"
+    ],
+    "correct_answer": "B",
+    "explanation": "NSG = simple subnet/VM filter, free. Firewall = for whole VNet + FQDN + expensive.",
+    "topic": "Networking",
+    "difficulty": "medium",
+    "id": "az900-006",
+    "signal": "Block an IP range at a subnet; network-layer filtering.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "NSG = simple subnet/VM filter, free. Firewall = for whole VNet + FQDN + expensive.",
+    "exam_alignment_note": "",
+    "correct_option": "Network Security Group (NSG)"
+  },
+  {
+    "question": "You need outbound application rules that allow traffic only to specified Microsoft domain names from a virtual network, with threat-intelligence filtering. Which service is the best fit?",
+    "options": [
+      "NSG",
+      "Azure Firewall",
+      "Network Security Group",
+      "DDoS Protection"
+    ],
+    "correct_answer": "B",
+    "explanation": "Azure Firewall supports centralized network protection, application rules for fully qualified domain names, and threat-intelligence filtering. An NSG filters traffic using network-layer properties such as IP addresses, ports, and protocols, not application-rule FQDN filtering.",
+    "topic": "Networking",
+    "difficulty": "medium",
+    "id": "az900-007",
+    "signal": "Outbound FQDN/application rules plus threat-intelligence filtering.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure Firewall supports centralized network protection, application rules for fully qualified domain names, and threat-intelligence filtering. An NSG filters traffic using network-layer properties such as IP addresses, ports, and protocols, not application-rule FQDN filtering.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Firewall"
+  },
+  {
+    "question": "You need to protect Azure resources from large volumetric DDoS attacks (10 Gbps). Which?",
+    "options": [
+      "Network Security Group (NSG)",
+      "Azure Firewall",
+      "Azure DDoS Protection",
+      "Azure Bastion"
+    ],
+    "correct_answer": "C",
+    "explanation": "Azure DDoS Protection is designed to help protect public-facing Azure resources from distributed denial-of-service attacks. NSGs and firewalls control traffic, while Bastion provides secure remote access to virtual machines.",
+    "topic": "Networking",
+    "difficulty": "medium",
+    "id": "az900-008",
+    "signal": "Large distributed denial-of-service attack; DDoS protection.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure DDoS Protection is designed to help protect public-facing Azure resources from distributed denial-of-service attacks. NSGs and firewalls control traffic, while Bastion provides secure remote access to virtual machines.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure DDoS Protection"
+  },
+  {
+    "question": "You need secure RDP to a VM from Azure portal WITHOUT public IP on VM. Which?",
+    "options": [
+      "Azure Firewall",
+      "Azure Bastion",
+      "VPN Gateway",
+      "ExpressRoute"
+    ],
+    "correct_answer": "B",
+    "explanation": "Bastion = secure jump host, no public IP needed. Access via portal.",
+    "topic": "Networking",
+    "difficulty": "medium",
+    "id": "az900-009",
+    "signal": "RDP through the Azure portal without a public IP on the VM.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Bastion = secure jump host, no public IP needed. Access via portal.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Bastion"
+  },
+  {
+    "question": "A single developer working from home wants to connect his laptop securely to VNet over internet. Which VPN type?",
+    "options": [
+      "Site-to-Site VPN",
+      "Point-to-Site VPN",
+      "ExpressRoute",
+      "VNet Peering"
+    ],
+    "correct_answer": "B",
+    "explanation": "Point-to-Site = 1 laptop (Point) to VNet. Think boda rider to office.",
+    "topic": "Networking",
+    "difficulty": "medium",
+    "id": "az900-010",
+    "signal": "One remote laptop connects to a virtual network; individual client connection.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Point-to-Site = 1 laptop (Point) to VNet. Think boda rider to office.",
+    "exam_alignment_note": "",
+    "correct_option": "Point-to-Site VPN"
+  },
+  {
+    "question": "Your entire office network must connect securely to an Azure virtual network over the internet using an encrypted tunnel. Which VPN type fits?",
+    "options": [
+      "Point-to-Site VPN",
+      "Site-to-Site VPN",
+      "Azure Bastion",
+      "ExpressRoute with public internet"
+    ],
+    "correct_answer": "B",
+    "explanation": "A Site-to-Site VPN connects an on-premises network to an Azure virtual network through an encrypted VPN tunnel. Point-to-Site is for an individual client device connecting to the virtual network.",
+    "topic": "Networking",
+    "difficulty": "medium",
+    "id": "az900-011",
+    "signal": "An entire office network connects through an encrypted VPN tunnel.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "A Site-to-Site VPN connects an on-premises network to an Azure virtual network through an encrypted VPN tunnel. Point-to-Site is for an individual client device connecting to the virtual network.",
+    "exam_alignment_note": "",
+    "correct_option": "Site-to-Site VPN"
+  },
+  {
+    "question": "You need a private, dedicated connection from your organization through a connectivity provider to Azure, without sending that traffic over the public internet. Which service fits?",
+    "options": [
+      "Site-to-Site VPN",
+      "ExpressRoute",
+      "Point-to-Site VPN",
+      "Azure Bastion"
+    ],
+    "correct_answer": "B",
+    "explanation": "ExpressRoute provides private connectivity between an organization’s network and Microsoft cloud services through a connectivity provider. It is not the same as an internet-based VPN.",
+    "topic": "Networking",
+    "difficulty": "hard",
+    "id": "az900-012",
+    "signal": "Private dedicated connectivity through a provider, not the public internet.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "ExpressRoute provides private connectivity between an organization’s network and Microsoft cloud services through a connectivity provider. It is not the same as an internet-based VPN.",
+    "exam_alignment_note": "",
+    "correct_option": "ExpressRoute"
+  },
+  {
+    "question": "You need to connect two VNets in same region with low latency, no gateway needed. Which?",
+    "options": [
+      "VPN Gateway",
+      "VNet Peering",
+      "ExpressRoute",
+      "Bastion"
+    ],
+    "correct_answer": "B",
+    "explanation": "VNet Peering = connect VNets directly, low latency, no gateway.",
+    "topic": "Networking",
+    "difficulty": "easy",
+    "id": "az900-013",
+    "signal": "Connect virtual networks directly with low latency and no gateway.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "VNet Peering = connect VNets directly, low latency, no gateway.",
+    "exam_alignment_note": "",
+    "correct_option": "VNet Peering"
+  },
+  {
+    "question": "You need to prevent resources from being created in East US across 20 subscriptions. Which service should you use, and where can you assign it to cover all 20 subscriptions?",
+    "options": [
+      "Resource Lock",
+      "RBAC",
+      "Azure Policy",
+      "Management Group lock"
+    ],
+    "correct_answer": "C",
+    "explanation": "Azure Policy can deny deployments that do not meet a location rule. Assigning the policy at an appropriate management-group scope can apply it across the subscriptions beneath that management group.",
+    "topic": "Governance",
+    "difficulty": "medium",
+    "id": "az900-014",
+    "signal": "Prevent deployments by location across many subscriptions; policy scope matters.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure Policy can deny deployments that do not meet a location rule. Assigning the policy at an appropriate management-group scope can apply it across the subscriptions beneath that management group.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Policy"
+  },
+  {
+    "question": "You want to prevent accidental deletion of Production Resource Group but allow changes inside. What?",
+    "options": [
+      "Reader RBAC role",
+      "CanNotDelete Resource Lock",
+      "Azure Policy",
+      "Deny Assignment"
+    ],
+    "correct_answer": "B",
+    "explanation": "CanNotDelete Lock stops delete but allows modify. Reader blocks modify too = too restrictive.",
+    "topic": "Governance",
+    "difficulty": "medium",
+    "id": "az900-015",
+    "signal": "Prevent deletion while still allowing other changes.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "CanNotDelete Lock stops delete but allows modify. Reader blocks modify too = too restrictive.",
+    "exam_alignment_note": "",
+    "correct_option": "CanNotDelete Resource Lock"
+  },
+  {
+    "question": "You need to give intern ability to restart VMs but NOT delete or create them. What?",
+    "options": [
+      "Azure Policy",
+      "RBAC with custom role",
+      "Resource Lock",
+      "Management Group"
+    ],
+    "correct_answer": "B",
+    "explanation": "RBAC = WHO can do WHAT. Policy = WHAT can exist. Need permission control = RBAC.",
+    "topic": "Governance",
+    "difficulty": "medium",
+    "id": "az900-016",
+    "signal": "Grant a person specific actions; permissions answer who can do what.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "RBAC = WHO can do WHAT. Policy = WHAT can exist. Need permission control = RBAC.",
+    "exam_alignment_note": "",
+    "correct_option": "RBAC with custom role"
+  },
+  {
+    "question": "You have 50 subscriptions. You want to apply same Policy and RBAC to all dev subscriptions at once. What groups subscriptions?",
+    "options": [
+      "Resource Groups",
+      "Management Groups",
+      "Availability Sets",
+      "Azure Blueprints"
+    ],
+    "correct_answer": "B",
+    "explanation": "Management Groups = group subscriptions for governance. Resource Groups = group resources inside subscription.",
+    "topic": "Governance",
+    "difficulty": "medium",
+    "id": "az900-017",
+    "signal": "Group subscriptions so governance can be applied across them.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Management Groups = group subscriptions for governance. Resource Groups = group resources inside subscription.",
+    "exam_alignment_note": "",
+    "correct_option": "Management Groups"
+  },
+  {
+    "question": "You want to group virtual machines by department within one subscription so they can be managed together as a shared lifecycle. Which Azure structure fits?",
+    "options": [
+      "Management Groups",
+      "Resource Groups",
+      "Availability Zones",
+      "Subscriptions"
+    ],
+    "correct_answer": "B",
+    "explanation": "A resource group is a logical container for resources that are managed together. For cost reporting by department, use tags such as Department=Finance rather than relying on resource groups alone.",
+    "topic": "Governance",
+    "difficulty": "easy",
+    "id": "az900-018",
+    "signal": "Resources managed together as one lifecycle; tags are better for department cost reporting.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "A resource group is a logical container for resources that are managed together. For cost reporting by department, use tags such as Department=Finance rather than relying on resource groups alone.",
+    "exam_alignment_note": "",
+    "correct_option": "Resource Groups"
+  },
+  {
+    "question": "You want to automatically add tag 'CostCenter=101' to every new VM created. What?",
+    "options": [
+      "Resource Lock",
+      "Azure Policy",
+      "RBAC",
+      "Cost Management"
+    ],
+    "correct_answer": "B",
+    "explanation": "Policy can auto-append tags on creation. RBAC can't.",
+    "topic": "Governance",
+    "difficulty": "medium",
+    "id": "az900-019",
+    "signal": "Automatically enforce or append a tag when resources are created.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Policy can auto-append tags on creation. RBAC can't.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Policy"
+  },
+  {
+    "question": "Your CEO asks: We already spend in Azure, where are we overspending THIS MONTH?",
+    "options": [
+      "Pricing Calculator",
+      "TCO Calculator",
+      "Cost Management + Billing",
+      "Azure Advisor"
+    ],
+    "correct_answer": "C",
+    "explanation": "Already running + current spend = Cost Management. Before deploy = Pricing Calculator.",
+    "topic": "Pricing",
+    "difficulty": "medium",
+    "id": "az900-020",
+    "signal": "Review actual current Azure spending.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Already running + current spend = Cost Management. Before deploy = Pricing Calculator.",
+    "exam_alignment_note": "",
+    "correct_option": "Cost Management + Billing"
+  },
+  {
+    "question": "You are planning migration of 10 VMs from on-prem to Azure, need to estimate monthly bill in Azure. FIRST tool?",
+    "options": [
+      "Cost Management",
+      "Pricing Calculator",
+      "TCO Calculator",
+      "Azure Monitor"
+    ],
+    "correct_answer": "B",
+    "explanation": "Planning/forecast before move = Pricing Calculator. TCO compares total cost including power.",
+    "topic": "Pricing",
+    "difficulty": "medium",
+    "id": "az900-021",
+    "signal": "Estimate Azure costs before migration or deployment.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Planning/forecast before move = Pricing Calculator. TCO compares total cost including power.",
+    "exam_alignment_note": "",
+    "correct_option": "Pricing Calculator"
+  },
+  {
+    "question": "You want to compare total cost of your Nakuru datacenter (power, cooling, staff) vs Azure over 3 years. Which?",
+    "options": [
+      "Pricing Calculator",
+      "TCO Calculator",
+      "Cost Management",
+      "Advisor"
+    ],
+    "correct_answer": "B",
+    "explanation": "TCO = Total Cost of Ownership. Includes hidden costs like electricity, rent, staff.",
+    "topic": "Pricing",
+    "difficulty": "medium",
+    "id": "az900-022",
+    "signal": "Compare on-premises total ownership costs with Azure costs.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "TCO = Total Cost of Ownership. Includes hidden costs like electricity, rent, staff.",
+    "exam_alignment_note": "",
+    "correct_option": "TCO Calculator"
+  },
+  {
+    "question": "You want Azure recommendations to reduce cost like delete unused disks. Which free tool?",
+    "options": [
+      "Cost Management",
+      "Azure Advisor",
+      "Pricing Calculator",
+      "TCO Calculator"
+    ],
+    "correct_answer": "B",
+    "explanation": "Advisor gives best practice recommendations: cost, security, reliability, performance.",
+    "topic": "Pricing",
+    "difficulty": "easy",
+    "id": "az900-023",
+    "signal": "Get recommendations to improve cost, security, reliability, or performance.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Advisor gives best practice recommendations: cost, security, reliability, performance.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Advisor"
+  },
+  {
+    "question": "You need 3 VMs to survive a single rack failure inside ONE datacenter. What?",
+    "options": [
+      "Availability Zones",
+      "Availability Sets with Fault Domains",
+      "Region Pairs",
+      "Scale Sets"
+    ],
+    "correct_answer": "B",
+    "explanation": "Fault Domain = rack. Availability Set spreads VMs across racks inside same datacenter.",
+    "topic": "Availability",
+    "difficulty": "hard",
+    "id": "az900-024",
+    "signal": "Protect VMs from a rack-level failure within a datacenter; fault domains.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Fault Domain = rack. Availability Set spreads VMs across racks inside same datacenter.",
+    "exam_alignment_note": "",
+    "correct_option": "Availability Sets with Fault Domains"
+  },
+  {
+    "question": "Your application must remain available if one availability zone in an Azure region experiences an outage. Which Azure capability is designed for this?",
+    "options": [
+      "Availability Set",
+      "Availability Zones",
+      "Region Pairs",
+      "Resource Groups"
+    ],
+    "correct_answer": "B",
+    "explanation": "Availability zones are separated groups of datacenters within a region, with independent power, cooling, and networking. The workload must be configured to use multiple zones; choosing a zone alone does not automatically make an application highly available.",
+    "topic": "Availability",
+    "difficulty": "hard",
+    "id": "az900-025",
+    "signal": "Survive an availability-zone outage; the workload must use multiple zones.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Availability zones are separated groups of datacenters within a region, with independent power, cooling, and networking. The workload must be configured to use multiple zones; choosing a zone alone does not automatically make an application highly available.",
+    "exam_alignment_note": "",
+    "correct_option": "Availability Zones"
+  },
+  {
+    "question": "You are designing disaster recovery for a workload if its entire Azure region becomes unavailable. Which concept helps identify a paired region that can support geo-redundancy when replication and failover are configured?",
+    "options": [
+      "Availability Zones",
+      "Region Pairs",
+      "Availability Sets",
+      "Scale Sets"
+    ],
+    "correct_answer": "B",
+    "explanation": "Azure region pairs identify specific paired regions for certain geo-redundancy and disaster-recovery scenarios. A region pair by itself does not automatically replicate every resource or fail over an application; those capabilities must be configured for the services in use.",
+    "topic": "Availability",
+    "difficulty": "hard",
+    "id": "az900-026",
+    "signal": "Regional disaster recovery; paired region plus configured replication and failover.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure region pairs identify specific paired regions for certain geo-redundancy and disaster-recovery scenarios. A region pair by itself does not automatically replicate every resource or fail over an application; those capabilities must be configured for the services in use.",
+    "exam_alignment_note": "",
+    "correct_option": "Region Pairs"
+  },
+  {
+    "question": "Your e-commerce app needs to add 5 VMs when CPU >80% during sale, remove at night automatically. Which cloud benefit?",
+    "options": [
+      "High Availability",
+      "Elasticity",
+      "Fault Tolerance",
+      "Geo-distribution"
+    ],
+    "correct_answer": "B",
+    "explanation": "Elasticity = scale out/in automatically based on demand. Scalability = ability to scale.",
+    "topic": "Cloud Concepts",
+    "difficulty": "easy",
+    "id": "az900-027",
+    "signal": "Resources scale out and back in as demand changes; elasticity.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Elasticity = scale out/in automatically based on demand. Scalability = ability to scale.",
+    "exam_alignment_note": "",
+    "correct_option": "Elasticity"
+  },
+  {
+    "question": "You need to store database backups for 10 years, rarely accessed, lowest storage cost, high retrieval cost OK. Tier?",
+    "options": [
+      "Hot",
+      "Cool",
+      "Archive",
+      "Premium"
+    ],
+    "correct_answer": "C",
+    "explanation": "Archive = cheapest storage, most expensive retrieval. For 10-year backups.",
+    "topic": "Storage",
+    "difficulty": "medium",
+    "id": "az900-028",
+    "signal": "Rarely accessed long-term blob data; lowest storage cost with slower, costly retrieval.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Archive = cheapest storage, most expensive retrieval. For 10-year backups.",
+    "exam_alignment_note": "",
+    "correct_option": "Archive"
+  },
+  {
+    "question": "You need storage for frequently accessed website images with lowest access cost. Tier?",
+    "options": [
+      "Hot",
+      "Cool",
+      "Archive",
+      "Cold"
+    ],
+    "correct_answer": "A",
+    "explanation": "Hot = frequently accessed, low access cost. Cool = infrequently accessed.",
+    "topic": "Storage",
+    "difficulty": "easy",
+    "id": "az900-029",
+    "signal": "Frequently accessed blob data; lower access costs.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Hot = frequently accessed, low access cost. Cool = infrequently accessed.",
+    "exam_alignment_note": "",
+    "correct_option": "Hot"
+  },
+  {
+    "question": "Which Azure Storage redundancy option copies data to a secondary region for regional-failure protection, without adding zone redundancy within the primary region?",
+    "options": [
+      "LRS",
+      "ZRS",
+      "GRS",
+      "GZRS"
+    ],
+    "correct_answer": "C",
+    "explanation": "Geo-redundant storage (GRS) replicates data locally in the primary region and asynchronously to a secondary region. GZRS also copies data to a secondary region but adds zone redundancy in the primary region, so the revised wording distinguishes the two.",
+    "topic": "Storage",
+    "difficulty": "medium",
+    "id": "az900-030",
+    "signal": "Copy data to a secondary region; distinguish GRS from GZRS.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Geo-redundant storage (GRS) replicates data locally in the primary region and asynchronously to a secondary region. GZRS also copies data to a secondary region but adds zone redundancy in the primary region, so the revised wording distinguishes the two.",
+    "exam_alignment_note": "",
+    "correct_option": "GRS"
+  },
+  {
+    "question": "A storage account contains containers named invoices and photos. You need a user to read blobs only in the invoices container. Which approach gives access at the required scope?",
+    "options": [
+      "Assign Reader at the subscription scope",
+      "Assign Storage Blob Data Reader at the invoices container scope",
+      "Apply a resource lock to the invoices container",
+      "Share the storage account key"
+    ],
+    "correct_answer": "B",
+    "explanation": "Assign the Storage Blob Data Reader data role at the invoices container scope. This grants read access to blob data within that container without granting access to the photos container. A storage account key is much broader access.",
+    "topic": "Security",
+    "difficulty": "medium",
+    "id": "az900-031",
+    "signal": "Only one container; least-privilege data role at container scope.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Assign the Storage Blob Data Reader data role at the invoices container scope. This grants read access to blob data within that container without granting access to the photos container. A storage account key is much broader access.",
+    "exam_alignment_note": "",
+    "correct_option": "Assign Storage Blob Data Reader at the invoices container scope"
+  },
+  {
+    "question": "Which Azure service provides centralized secret storage for API keys, certificates, passwords?",
+    "options": [
+      "Azure Storage",
+      "Azure Key Vault",
+      "Azure Information Protection",
+      "Microsoft Defender"
+    ],
+    "correct_answer": "B",
+    "explanation": "Key Vault = secrets, keys, certs. Not storage for files.",
+    "topic": "Security",
+    "difficulty": "easy",
+    "id": "az900-032",
+    "signal": "Central place for secrets, keys, and certificates.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Key Vault = secrets, keys, certs. Not storage for files.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Key Vault"
+  },
+  {
+    "question": "You need to enforce MFA for all Global Admins. Where do you configure?",
+    "options": [
+      "Azure Policy",
+      "Microsoft Entra ID (Azure AD) Conditional Access",
+      "Resource Lock",
+      "NSG"
+    ],
+    "correct_answer": "B",
+    "explanation": "Conditional Access = identity security like MFA, location. Policy = resource compliance.",
+    "topic": "Security",
+    "difficulty": "medium",
+    "id": "az900-033",
+    "signal": "Require MFA using identity-based Conditional Access policies.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Conditional Access = identity security like MFA, location. Policy = resource compliance.",
+    "exam_alignment_note": "",
+    "correct_option": "Microsoft Entra ID (Azure AD) Conditional Access"
+  },
+  {
+    "question": "What is Microsoft's responsibility in shared responsibility model for SaaS (e.g. Microsoft 365)?",
+    "options": [
+      "Only physical datacenter",
+      "Physical, network, OS, application",
+      "Customer manages everything",
+      "Only data"
+    ],
+    "correct_answer": "B",
+    "explanation": "With SaaS, Microsoft manages the underlying infrastructure and the SaaS application. Customers still have responsibilities such as managing their data, user identities and access, and service configuration. Exact responsibilities depend on the service and configuration.",
+    "topic": "Cloud Concepts",
+    "difficulty": "medium",
+    "id": "az900-034",
+    "signal": "SaaS provider manages the application and infrastructure; customer still manages data and access responsibilities.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "With SaaS, Microsoft manages the underlying infrastructure and the SaaS application. Customers still have responsibilities such as managing their data, user identities and access, and service configuration. Exact responsibilities depend on the service and configuration.",
+    "exam_alignment_note": "",
+    "correct_option": "Physical, network, OS, application"
+  },
+  {
+    "question": "In IaaS (Virtual Machines), who patches the guest OS?",
+    "options": [
+      "Microsoft",
+      "Customer",
+      "Shared",
+      "No one"
+    ],
+    "correct_answer": "B",
+    "explanation": "IaaS = Customer manages OS patching. PaaS/SaaS Microsoft manages.",
+    "topic": "Cloud Concepts",
+    "difficulty": "easy",
+    "id": "az900-035",
+    "signal": "IaaS virtual machine; guest OS is customer-managed.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "IaaS = Customer manages OS patching. PaaS/SaaS Microsoft manages.",
+    "exam_alignment_note": "",
+    "correct_option": "Customer"
+  },
+  {
+    "question": "Which cloud model is Azure SQL Database (PaaS)? Customer manages?",
+    "options": [
+      "Physical hardware",
+      "OS patching",
+      "Data and access",
+      "Network"
+    ],
+    "correct_answer": "C",
+    "explanation": "Azure SQL Database is a PaaS database service. Microsoft manages the underlying infrastructure and operating system, while customers remain responsible for their data, access controls, and database/application configuration.",
+    "topic": "Cloud Concepts",
+    "difficulty": "easy",
+    "id": "az900-036",
+    "signal": "Managed PaaS database; customer retains data and access responsibilities.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure SQL Database is a PaaS database service. Microsoft manages the underlying infrastructure and operating system, while customers remain responsible for their data, access controls, and database/application configuration.",
+    "exam_alignment_note": "",
+    "correct_option": "Data and access"
+  },
+  {
+    "question": "You need relational database with full SQL, managed, auto-patching, no OS access. Which?",
+    "options": [
+      "SQL Server on VM",
+      "Azure SQL Database",
+      "Cosmos DB",
+      "Table Storage"
+    ],
+    "correct_answer": "B",
+    "explanation": "SQL Database = PaaS managed SQL. SQL on VM = IaaS you manage.",
+    "topic": "Databases",
+    "difficulty": "easy",
+    "id": "az900-037",
+    "signal": "Managed relational SQL database without OS administration.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "SQL Database = PaaS managed SQL. SQL on VM = IaaS you manage.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure SQL Database"
+  },
+  {
+    "question": "You need a globally distributed NoSQL database and your solution requires low-latency access across regions with multi-region writes configured. Which Azure service fits?",
+    "options": [
+      "Azure SQL Database",
+      "Azure Cosmos DB",
+      "Blob Storage",
+      "MySQL on VM"
+    ],
+    "correct_answer": "B",
+    "explanation": "Azure Cosmos DB is a globally distributed NoSQL database service that supports low-latency access and multi-region writes when configured for that capability.",
+    "topic": "Databases",
+    "difficulty": "easy",
+    "id": "az900-038",
+    "signal": "Globally distributed NoSQL database; multi-region writes must be configured.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure Cosmos DB is a globally distributed NoSQL database service that supports low-latency access and multi-region writes when configured for that capability.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Cosmos DB"
+  },
+  {
+    "question": "You need to run big data analytics with Hadoop clusters on-demand, pay per job. Which?",
+    "options": [
+      "HDInsight",
+      "Azure Functions",
+      "App Service",
+      "AKS"
+    ],
+    "correct_answer": "A",
+    "explanation": "HDInsight = managed Hadoop/Spark big data. Functions for small event tasks.",
+    "topic": "Analytics",
+    "difficulty": "medium",
+    "id": "az900-039",
+    "signal": "Managed Hadoop/Spark big-data analytics service; check whether this is relevant to your exam coverage.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "HDInsight = managed Hadoop/Spark big data. Functions for small event tasks.",
+    "exam_alignment_note": "Supplementary topic: confirm against the current official AZ-900 skills outline.",
+    "correct_option": "HDInsight"
+  },
+  {
+    "question": "You need to query and analyze logs collected from multiple Azure resources to troubleshoot an issue. Which tool combination is the best fit?",
+    "options": [
+      "Azure Advisor",
+      "Azure Monitor + Log Analytics",
+      "Cost Management",
+      "Service Health"
+    ],
+    "correct_answer": "B",
+    "explanation": "Azure Monitor collects and presents monitoring data, while Log Analytics lets you query log data from multiple resources. Azure Monitor Workbooks can be used to build visual reports from monitoring data.",
+    "topic": "Monitoring",
+    "difficulty": "easy",
+    "id": "az900-040",
+    "signal": "Collect and query logs from multiple Azure resources.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Azure Monitor collects and presents monitoring data, while Log Analytics lets you query log data from multiple resources. Azure Monitor Workbooks can be used to build visual reports from monitoring data.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Monitor + Log Analytics"
+  },
+  {
+    "question": "You need to know if Azure region has outage affecting your VMs. Which tool FIRST?",
+    "options": [
+      "Azure Monitor",
+      "Azure Service Health",
+      "Advisor",
+      "Cost Management"
+    ],
+    "correct_answer": "B",
+    "explanation": "Service Health = Azure platform health/outages. Monitor = your resources health.",
+    "topic": "Monitoring",
+    "difficulty": "easy",
+    "id": "az900-041",
+    "signal": "Azure platform incident or outage affecting your subscription.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Service Health = Azure platform health/outages. Monitor = your resources health.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Service Health"
+  },
+  {
+    "question": "You want to deploy same set of 20 resources (VNet, VMs, DB) repeatedly for each client exactly same way. MOST efficient?",
+    "options": [
+      "Create manually in portal",
+      "ARM templates / Bicep",
+      "Copy-paste",
+      "Azure Policy"
+    ],
+    "correct_answer": "B",
+    "explanation": "ARM/Bicep = Infrastructure as Code, repeatable deployment. Policy enforces, not deploys.",
+    "topic": "IaC",
+    "difficulty": "easy",
+    "id": "az900-042",
+    "signal": "Repeatable infrastructure deployment from templates/code.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "ARM/Bicep = Infrastructure as Code, repeatable deployment. Policy enforces, not deploys.",
+    "exam_alignment_note": "",
+    "correct_option": "ARM templates / Bicep"
+  },
+  {
+    "question": "Which is NOT a benefit of cloud computing?",
+    "options": [
+      "High availability",
+      "Elasticity",
+      "Need to buy physical servers upfront (CapEx)",
+      "Agility"
+    ],
+    "correct_answer": "C",
+    "explanation": "CapEx upfront is on-prem disadvantage. Cloud = OpEx pay-as-you-go.",
+    "topic": "Cloud Concepts",
+    "difficulty": "easy",
+    "id": "az900-043",
+    "signal": "Identify an on-premises cost or responsibility that is not a cloud benefit.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "CapEx upfront is on-prem disadvantage. Cloud = OpEx pay-as-you-go.",
+    "exam_alignment_note": "",
+    "correct_option": "Need to buy physical servers upfront (CapEx)"
+  },
+  {
+    "question": "Changing from buying servers (CapEx) to pay monthly for Azure (OpEx) is which benefit?",
+    "options": [
+      "Scalability",
+      "Shift from CapEx to OpEx",
+      "Geo-distribution",
+      "Fault tolerance"
+    ],
+    "correct_answer": "B",
+    "explanation": "Cloud moves CapEx (buy) to OpEx (pay as you go). No upfront.",
+    "topic": "Cloud Concepts",
+    "difficulty": "easy",
+    "id": "az900-044",
+    "signal": "Shift from purchasing physical servers to consumption-based operating costs; avoid assuming every service has no upfront cost.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Cloud moves CapEx (buy) to OpEx (pay as you go). No upfront.",
+    "exam_alignment_note": "",
+    "correct_option": "Shift from CapEx to OpEx"
+  },
+  {
+    "question": "You need to estimate cost of running app with 2 App Services, 1 SQL DB, 100GB storage. Before building, which tool?",
+    "options": [
+      "TCO Calculator",
+      "Pricing Calculator",
+      "Cost Management",
+      "Azure Advisor"
+    ],
+    "correct_answer": "B",
+    "explanation": "Pricing Calculator = estimate BEFORE build. Cost Management = AFTER you're running.",
+    "topic": "Pricing",
+    "difficulty": "easy",
+    "id": "az900-045",
+    "signal": "Estimate expected costs before deployment.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Pricing Calculator = estimate BEFORE build. Cost Management = AFTER you're running.",
+    "exam_alignment_note": "",
+    "correct_option": "Pricing Calculator"
+  },
+  {
+    "question": "A developer pushes code to GitHub, and the application hosted in Azure App Service should deploy the changes automatically. Which capability fits?",
+    "options": [
+      "Azure Policy",
+      "App Service continuous deployment through Deployment Center",
+      "Resource Lock",
+      "Azure Bastion"
+    ],
+    "correct_answer": "B",
+    "explanation": "App Service supports continuous deployment integrations that can deploy changes from a source repository. Deployment slots are a separate feature used to stage and swap application versions.",
+    "topic": "Compute",
+    "difficulty": "medium",
+    "id": "az900-046",
+    "signal": "Automatically deploy source-code changes; continuous deployment, not deployment slots alone.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "App Service supports continuous deployment integrations that can deploy changes from a source repository. Deployment slots are a separate feature used to stage and swap application versions.",
+    "exam_alignment_note": "",
+    "correct_option": "App Service continuous deployment through Deployment Center"
+  },
+  {
+    "question": "You need a serverless job that runs on a schedule every five minutes to perform a cleanup task. Which option fits?",
+    "options": [
+      "Virtual Machine Scale Sets",
+      "Azure Functions with Timer Trigger",
+      "App Service",
+      "AKS"
+    ],
+    "correct_answer": "B",
+    "explanation": "An Azure Functions timer trigger runs code on a schedule, such as every five minutes. If the requirement is to process queue messages as they arrive, a queue trigger would be the more direct fit.",
+    "topic": "Compute",
+    "difficulty": "medium",
+    "id": "az900-047",
+    "signal": "Scheduled execution every five minutes; timer trigger.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "An Azure Functions timer trigger runs code on a schedule, such as every five minutes. If the requirement is to process queue messages as they arrive, a queue trigger would be the more direct fit.",
+    "exam_alignment_note": "",
+    "correct_option": "Azure Functions with Timer Trigger"
+  },
+  {
+    "question": "You have 2 VMs in same Availability Set. What does Azure do during platform update?",
+    "options": [
+      "Updates both at same time",
+      "Updates one at a time using Update Domains",
+      "Deletes both",
+      "Moves to different region"
+    ],
+    "correct_answer": "B",
+    "explanation": "Update Domain = sequential updates. Fault Domain = racks.",
+    "topic": "Availability",
+    "difficulty": "medium",
+    "id": "az900-048",
+    "signal": "Planned maintenance is sequenced across update domains.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Update Domain = sequential updates. Fault Domain = racks.",
+    "exam_alignment_note": "",
+    "correct_option": "Updates one at a time using Update Domains"
+  },
+  {
+    "question": "Which Azure support plan offers a response time of one hour or less for high-severity cases and also includes advisory guidance for planning deployments, migrations, reliability, and security?",
+    "options": [
+      "Developer",
+      "Standard",
+      "Professional Direct",
+      "Basic"
+    ],
+    "correct_answer": "C",
+    "explanation": "Professional Direct includes a one-hour-or-less initial response for high-severity cases and advisory services. Standard also has a one-hour response target for critical cases, so the advisory-guidance requirement is the distinguishing clue.",
+    "topic": "Support",
+    "difficulty": "hard",
+    "id": "az900-049",
+    "signal": "One-hour high-severity response plus advisory guidance distinguishes Professional Direct.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "Professional Direct includes a one-hour-or-less initial response for high-severity cases and advisory services. Standard also has a one-hour response target for critical cases, so the advisory-guidance requirement is the distinguishing clue.",
+    "exam_alignment_note": "",
+    "correct_option": "Professional Direct"
+  },
+  {
+    "question": "You need to find Microsoft compliance reports and certificates, including documentation related to ISO 27001. Where should you look first?",
+    "options": [
+      "Azure Advisor",
+      "Microsoft Service Trust Portal",
+      "Cost Management",
+      "Azure Policy"
+    ],
+    "correct_answer": "B",
+    "explanation": "The Microsoft Service Trust Portal provides compliance documentation and audit reports for Microsoft cloud services. Azure Policy helps enforce organizational rules; it is not the main library for Microsoft compliance reports.",
+    "topic": "Compliance",
+    "difficulty": "easy",
+    "id": "az900-050",
+    "signal": "Find Microsoft compliance reports and certificates.",
+    "audit_status": "revised",
+    "why_this_answer_fits": "The Microsoft Service Trust Portal provides compliance documentation and audit reports for Microsoft cloud services. Azure Policy helps enforce organizational rules; it is not the main library for Microsoft compliance reports.",
+    "exam_alignment_note": "",
+    "correct_option": "Microsoft Service Trust Portal"
+  },
+  {
+    "question": "You need to protect your Azure environment with SIEM and threat detection across resources. Which?",
+    "options": [
+      "Microsoft Defender for Cloud",
+      "Microsoft Sentinel",
+      "Azure Firewall",
+      "NSG"
+    ],
+    "correct_answer": "B",
+    "explanation": "Sentinel = SIEM (logs + detection). Defender for Cloud = posture + protection.",
+    "topic": "Security",
+    "difficulty": "medium",
+    "id": "az900-051",
+    "signal": "SIEM and security-event correlation; distinguish Sentinel from Defender for Cloud.",
+    "audit_status": "reviewed",
+    "why_this_answer_fits": "Sentinel = SIEM (logs + detection). Defender for Cloud = posture + protection.",
+    "exam_alignment_note": "Supplementary topic: confirm against the current official AZ-900 skills outline.",
+    "correct_option": "Microsoft Sentinel"
+  }
+]
