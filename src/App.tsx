@@ -10,6 +10,8 @@ import { LandingView } from '@/components/LandingView';
 import { AboutView } from '@/components/AboutView';
 import { SignUpView } from '@/components/SignUpView';
 import { SignInView } from '@/components/SignInView';
+import { ForgotPasswordView } from '@/components/ForgotPasswordView';
+import { ResetPasswordView } from '@/components/ResetPasswordView';
 import { LearningSpaceView } from '@/components/LearningSpaceView';
 import { ProgressView } from '@/components/ProgressView';
 import { AccountView } from '@/components/AccountView';
@@ -26,6 +28,8 @@ export type ViewId =
   | 'insights'
   | 'signin'
   | 'signup'
+  | 'forgot-password'
+  | 'reset-password'
   | 'learning-space'
   | 'progress'
   | 'account'
@@ -45,6 +49,8 @@ const PUBLIC_LAYOUT_VIEWS: ViewId[] = [
   'about',
   'signin',
   'signup',
+  'forgot-password',
+  'reset-password',
 ];
 
 // Authenticated sidebar views with their topbar meta
@@ -72,8 +78,9 @@ function AppContent() {
     if (authLoading) return;
 
     if (isAuthenticated) {
-      // If on a public-only page (landing, signin, signup, about), go to learning space
-      if (view === 'signin' || view === 'signup' || view === 'landing') {
+      // If on a public-only page (landing, signin, signup, about), go to learning space.
+      // But don't redirect from reset-password — the user is mid-recovery flow.
+      if (view === 'signin' || view === 'signup' || view === 'landing' || view === 'forgot-password') {
         setView('learning-space');
       }
     } else {
@@ -90,6 +97,21 @@ function AppContent() {
   }, [view]);
 
   const navigate = (next: ViewId) => setView(next);
+
+  // Detect hash-based routes (used by password recovery redirect)
+  useEffect(() => {
+    function checkHash() {
+      const hash = window.location.hash;
+      if (hash.includes('reset-password')) {
+        setView('reset-password');
+        // Clean the URL so a refresh doesn't re-trigger the view
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    return () => window.removeEventListener('hashchange', checkHash);
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
@@ -116,7 +138,7 @@ function AppContent() {
   // Public layout pages (landing, about, signin, signup)
   if (PUBLIC_LAYOUT_VIEWS.includes(view) || (!isAuthenticated && view === 'practice')) {
     // Practice is accessible to unauthenticated users but uses public nav
-    const usePublicNav = view !== 'signin' && view !== 'signup';
+    const usePublicNav = view !== 'signin' && view !== 'signup' && view !== 'forgot-password' && view !== 'reset-password';
 
     return (
       <div className="min-h-screen bg-white">
@@ -125,6 +147,8 @@ function AppContent() {
         {view === 'about' && <AboutView onNavigate={navigate} />}
         {view === 'signup' && <SignUpView onNavigate={navigate} />}
         {view === 'signin' && <SignInView onNavigate={navigate} />}
+        {view === 'forgot-password' && <ForgotPasswordView onNavigate={navigate} />}
+        {view === 'reset-password' && <ResetPasswordView onNavigate={navigate} />}
         {view === 'practice' && !isAuthenticated && (
           <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
             <QuizView

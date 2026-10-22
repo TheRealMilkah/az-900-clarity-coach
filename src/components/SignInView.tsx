@@ -117,6 +117,16 @@ export function SignInView({ onNavigate }: SignInViewProps) {
               </div>
             </div>
 
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => onNavigate('forgot-password')}
+                className="text-xs font-semibold text-azure-600 hover:text-azure-700"
+              >
+                Forgot password?
+              </button>
+            </div>
+
             <button type="submit" className="btn-primary w-full" disabled={submitting}>
               {submitting ? 'Signing in...' : 'Sign In'}
               {!submitting && <ArrowRight className="h-4 w-4" />}
