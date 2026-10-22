@@ -31,7 +31,7 @@ export function InsightsView({ results, onNavigate }: InsightsViewProps) {
             revision areas.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <button className="btn-primary" onClick={() => onNavigate('quiz')}>
+            <button className="btn-primary" onClick={() => onNavigate('practice')}>
               <Target className="h-4 w-4" />
               Start practising
             </button>
@@ -154,7 +154,7 @@ export function InsightsView({ results, onNavigate }: InsightsViewProps) {
           </ul>
         )}
         <div className="mt-4 flex flex-wrap gap-3">
-          <button className="btn-secondary" onClick={() => onNavigate('quiz')}>
+          <button className="btn-secondary" onClick={() => onNavigate('practice')}>
             Practise more
             <ArrowRight className="h-4 w-4" />
           </button>

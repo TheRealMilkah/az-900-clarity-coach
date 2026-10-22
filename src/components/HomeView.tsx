@@ -73,7 +73,7 @@ export function HomeView({ results, onNavigate, onReset }: HomeViewProps) {
             the answer.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <button className="btn-primary" onClick={() => onNavigate('quiz')}>
+            <button className="btn-primary" onClick={() => onNavigate('practice')}>
               <Brain className="h-4 w-4" />
               Start Practice
             </button>
@@ -104,7 +104,7 @@ export function HomeView({ results, onNavigate, onReset }: HomeViewProps) {
             return (
               <button
                 key={t.id}
-                onClick={() => onNavigate('quiz')}
+                onClick={() => onNavigate('practice')}
                 className="card group p-5 text-left transition-all hover:-translate-y-0.5 hover:shadow-cardHover"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-azure-50 text-azure-600 transition-colors group-hover:bg-azure-100">
@@ -157,7 +157,7 @@ export function HomeView({ results, onNavigate, onReset }: HomeViewProps) {
                 your progress, average score, and topics to revisit will appear
                 right here.
               </p>
-              <button className="btn-primary mt-5" onClick={() => onNavigate('quiz')}>
+              <button className="btn-primary mt-5" onClick={() => onNavigate('practice')}>
                 <Brain className="h-4 w-4" />
                 Try your first question
               </button>
@@ -223,7 +223,7 @@ export function HomeView({ results, onNavigate, onReset }: HomeViewProps) {
               </p>
               <button
                 className="btn-secondary mt-auto pt-3"
-                onClick={() => onNavigate('quiz')}
+                onClick={() => onNavigate('practice')}
               >
                 Continue
                 <ArrowRight className="h-4 w-4" />
